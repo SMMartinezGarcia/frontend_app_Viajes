@@ -8,8 +8,8 @@ export const PerfilUsuario = ({ usuario }) => {
   useEffect(() => {
     const userId = usuario.uid || usuario.id;
     Promise.all([
-      axios.get(`http://localhost:5000/api/viajes/reservas?usuarioId=${userId}`).catch(() => ({ data: [] })),
-      axios.get(`http://localhost:5000/api/ubicaciones?usuarioId=${userId}`).catch(() => ({ data: [] })),
+      axios.get(`http://import.meta.env.VITE_API_URL/api/viajes/reservas?usuarioId=${userId}`).catch(() => ({ data: [] })),
+      axios.get(`http://import.meta.env.VITE_API_URL/api/ubicaciones?usuarioId=${userId}`).catch(() => ({ data: [] })),
     ]).then(([reservasRes, ubicRes]) => {
       const reservas = reservasRes.data;
       const total = reservas.reduce((sum, r) => sum + (r.total || 0), 0);

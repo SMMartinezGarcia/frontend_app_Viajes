@@ -11,7 +11,7 @@ export const TablaHistorial = ({ usuarioId }) => {
 
   const cargarHistorial = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/ubicaciones?usuarioId=${usuarioId}`);
+      const res = await axios.get(`http://import.meta.env.VITE_API_URL/api/ubicaciones?usuarioId=${usuarioId}`);
       setUbicaciones(res.data);
     } catch {
       setMensaje('Error al cargar historial');
@@ -23,7 +23,7 @@ export const TablaHistorial = ({ usuarioId }) => {
   const eliminar = async (id) => {
     if (!confirm('¿Eliminar esta ubicación?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/ubicaciones/${id}?usuarioId=${usuarioId}`);
+      await axios.delete(`http://import.meta.env.VITE_API_URL/api/ubicaciones/${id}?usuarioId=${usuarioId}`);
       cargarHistorial();
       setMensaje('Ubicación eliminada');
       setTimeout(() => setMensaje(''), 3000);

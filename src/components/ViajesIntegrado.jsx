@@ -170,7 +170,7 @@ export const ViajesIntegrado = ({ usuario, onReservaExitosa }) => {
 
   const buscarVuelos = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/viajes/vuelos', {
+      const res = await axios.get('http://import.meta.env.VITE_API_URL/api/viajes/vuelos', {
         params: { origen: busqueda.origen, destino: busqueda.destino }
       });
       setVuelos(res.data);
@@ -179,7 +179,7 @@ export const ViajesIntegrado = ({ usuario, onReservaExitosa }) => {
 
   const buscarHoteles = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/viajes/hoteles', {
+      const res = await axios.get('http://import.meta.env.VITE_API_URL/api/viajes/hoteles', {
         params: { ciudad: busqueda.ciudad }
       });
       setHoteles(res.data);
@@ -202,7 +202,7 @@ export const ViajesIntegrado = ({ usuario, onReservaExitosa }) => {
     }
     setReservando(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/viajes/reservas', {
+      const res = await axios.post('http://import.meta.env.VITE_API_URL/api/viajes/reservas', {
         usuario, vuelo: vueloSeleccionado, hotel: hotelSeleccionado, noches
       });
       setMensaje('✅ ¡Reserva creada exitosamente!');

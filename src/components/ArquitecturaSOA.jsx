@@ -25,7 +25,7 @@ export const ArquitecturaSOA = () => {
 
   const verificarServicios = async () => {
     setVerificando(true);
-    const BASE = 'http://localhost:5000';
+    const BASE = import.meta.env.VITE_API_URL;
     const nuevos = {};
 
     await Promise.all(
