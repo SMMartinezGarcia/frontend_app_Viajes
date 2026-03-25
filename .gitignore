@@ -33,3 +33,5 @@ dist-ssr
 
 # Coverage de tests
 coverage/
+.vercel
+.env*.local
