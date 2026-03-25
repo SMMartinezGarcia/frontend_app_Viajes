@@ -12,7 +12,7 @@ export const MisReservas = ({ usuario }) => {
 
   const cargarReservas = async () => {
     try {
-      const res = await axios.get('http://import.meta.env.VITE_API_URL/api/viajes/reservas', {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/viajes/reservas`, {
         params: { usuarioId: usuario.uid || usuario.id }
       });
       setReservas(res.data);

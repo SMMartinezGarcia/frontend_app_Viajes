@@ -32,7 +32,7 @@ export const DashboardMapa = ({ user }) => {
     if (!coords.lat) return;
     setGuardando(true);
     try {
-      await axios.post('http://import.meta.env.VITE_API_URL/api/ubicaciones', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/ubicaciones`, {
         usuarioId: user.uid || user.id,
         usuarioNombre: user.displayName || user.email,
         usuarioEmail: user.email,
